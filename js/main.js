@@ -1,6 +1,7 @@
 import{photoDescriptions}from"./data_constans.js"
  import{comentVariationsList}from"./data_constans.js"
  import{authorsNamesList}from"./data_constans.js"
+ import{template}from"./photoTemplate.js"
 const randomInt=function(min,max){
     min = Math.ceil(min)
     max = Math.floor(max) 
