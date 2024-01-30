@@ -1,0 +1,81 @@
+let photosArray;
+const socialComments=document.querySelector('.social_comments')
+let commentsCounter=0;
+export function bigPicture (evt,globalPhotosArray){
+  const body=document.querySelector('body')
+  body.classList.add('modal-open')
+  console.log(evt.target.tagName)
+  const bigPic=document.querySelector('big-picture')
+  bigPic.classList.remove('hidden')
+  console.log(typeof(evt.target.dataset.id))
+  const bigPicImg =document.querySelector('big-picture_img')
+  const likesCount=document.querySelector('.likes-count')
+  const comentsCount=document.querySelector('.coments-count')
+  const cosialCaption=document.querySelector('.social_caption')
+  const pictureObject=photosArray.find
+
+}
+console.log(picture pictureObject)
+bigPicture.children[0].src=pictureObject.url
+likesCount.textContent=pictureObject.likes
+comentsCount.textContent=pictureObject.coments.length
+socialCaption.textContent=pictureObject.dicription
+socialComments.innerHTML=''
+
+const uploadMore=document.querySelector('#uploadMore')
+showComments()
+uploadMore.addEventListener('click',showComments)
+const reset =document.querySelector('big-picture_cancel')
+reset.addEventListener('clock',closeBigPicture)
+document.addEventListener('keydown',keyChek)
+function keyChek(event){
+  if (event.key==='Escare'){
+closeBigPicture
+  }
+}
+function closeBigPicture(){
+  commentsCounter=0
+  uploadMore.classList.remove('hidden')
+  body.classList.remove('modal-0pen')
+  bigPicture.classList.add('hidden')
+  document.removeEventListener('keydown',keyChek)
+  upioadMore.removeEventListener('click',showComments)
+}
+
+function showComments(){
+  const showCounter=document.querySelector('coments-shown')
+  const countedComments=commentsCounter
+  if(pictureObject.comments.length-commentsCounter) <=6{
+    commentsCounter=pictureObject.comments.length
+    uploadMore.classList.add('hidden')
+    console.log('first if')
+  }else{
+    commentsCounter+=5;
+    console.log('second if')
+  }
+  for(let i=countedComments;i<commentsCounter;i++){
+    showComments(pictureObject.comments[i])
+  }
+  console.log('else ')
+
+  showCounter.textContent=commentsCounter
+  console.log('comments counter'+comentsCount)
+  console.log('counted comments'+countedComments)
+  console.log("length"+pictureObject.comments.length)
+
+}
+function showComment(comment){
+  const socialComment=document.querySelector('#social_comment').cloneNode(true).textContent
+  const socialCommentImg=socialComment.querySelector('.social-picture')
+  const socialCommentAuthor=socialComment.querySelector('.social_author')
+  const sicialCommentText=socialComment.querySelector('social_text')
+  socialCommentImg.src=comment.avatar
+  socialCommentImg.alt=comment.name
+  socialCommentAuthor.textContent=comment.name
+  socialCommentText.textContent=comment.message
+  let fragment=document.createDocumentFragment()
+  fragment.appendChild(socialComment)
+  socialComments.appendChild(fragment)
+
+}
+
