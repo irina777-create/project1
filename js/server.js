@@ -6,7 +6,7 @@ const port=3000
 const hostname='127.0.01'
 const filePath='./data.txt'
 
-fs/access(filePath,fs.constants.F_OK,(err)=>{
+fs.access(filePath,fs.constants.F_OK,(err)=>{
   if(err){
     console.log('Файл не існує');
     const dataArray=dataGenerator()
